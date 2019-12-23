@@ -1,0 +1,140 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Main/Main.gd" type="Script" id=1]
+[ext_resource path="res://Background.jpg" type="Texture" id=2]
+[ext_resource path="res://Paddle/Paddle.gd" type="Script" id=3]
+[ext_resource path="res://Paddle/Paddle.png" type="Texture" id=4]
+[ext_resource path="res://Brick/Bricks.gd" type="Script" id=5]
+[ext_resource path="res://Lifes/Lifes.gd" type="Script" id=6]
+[ext_resource path="res://Ball/Ball.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Menu/Menu.gd" type="Script" id=8]
+[ext_resource path="res://Menu/Filter.png" type="Texture" id=9]
+[ext_resource path="res://Menu/Theme.tres" type="Theme" id=10]
+[ext_resource path="res://Menu/Roboto100.tres" type="DynamicFont" id=11]
+[ext_resource path="res://Menu/Roboto50.tres" type="DynamicFont" id=12]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 98.6112, 5.70001 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 15.8179, 6.39911 )
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 26.4835
+
+[node name="Main" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Background" type="Sprite" parent="."]
+modulate = Color( 0.784314, 0.784314, 0.784314, 1 )
+position = Vector2( 512, 380 )
+scale = Vector2( 1.0153, 1.0153 )
+texture = ExtResource( 2 )
+
+[node name="Paddle" type="KinematicBody2D" parent="."]
+position = Vector2( 507, 540 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Paddle"]
+scale = Vector2( 0.237119, 0.237119 )
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Paddle"]
+position = Vector2( -14.1662, -4.9554 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Paddle"]
+position = Vector2( 98.0446, -7.04858 )
+rotation = -0.20944
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Paddle"]
+position = Vector2( -9.0415, -7.86133 )
+scale = Vector2( 0.237119, 0.237119 )
+shape = SubResource( 3 )
+
+[node name="Bricks" type="Node2D" parent="."]
+script = ExtResource( 5 )
+
+[node name="Sky" type="StaticBody2D" parent="."]
+editor/display_folded = true
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Top" type="CollisionPolygon2D" parent="Sky"]
+position = Vector2( 0, 40 )
+polygon = PoolVector2Array( -104, -160, 0, -40, 1014, -40, 1118, -160 )
+
+[node name="Left" type="CollisionPolygon2D" parent="Sky"]
+position = Vector2( 0, 40 )
+polygon = PoolVector2Array( 0, -40, -104, -160, -104, 920, 0, 920 )
+
+[node name="Right" type="CollisionPolygon2D" parent="Sky"]
+position = Vector2( 0, 40 )
+polygon = PoolVector2Array( 1014, -40, 1118, -160, 1118, 920, 1014, 920 )
+
+[node name="Ground" type="StaticBody2D" parent="."]
+editor/display_folded = true
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Bottom" type="CollisionPolygon2D" parent="Ground"]
+position = Vector2( 0, 60 )
+polygon = PoolVector2Array( 1014, 540, 1014, 660, 0, 660, 0, 540 )
+
+[node name="Lifes" type="Node2D" parent="."]
+script = ExtResource( 6 )
+
+[node name="Ball" parent="." instance=ExtResource( 7 )]
+editor/display_folded = true
+position = Vector2( 507, 480 )
+
+[node name="Menu" type="Control" parent="."]
+editor/display_folded = true
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Filter" type="Sprite" parent="Menu"]
+modulate = Color( 0.784314, 0.784314, 0.784314, 0.6 )
+position = Vector2( 506.157, 302.5 )
+scale = Vector2( 104.331, 62.5 )
+texture = ExtResource( 9 )
+
+[node name="Label" type="Label" parent="Menu"]
+margin_top = 120.0
+margin_right = 1014.0
+margin_bottom = 246.0
+theme = ExtResource( 10 )
+custom_fonts/font = ExtResource( 11 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "bali breakout"
+align = 1
+valign = 1
+uppercase = true
+
+[node name="Button" type="Button" parent="Menu"]
+margin_left = 338.0
+margin_top = 330.0
+margin_right = 676.0
+margin_bottom = 420.0
+theme = ExtResource( 10 )
+custom_fonts/font = ExtResource( 12 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Start"
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2( 1014, 532.407 )
+[connection signal="visibility_changed" from="Menu" to="Menu" method="_on_Menu_visibility_changed"]
+[connection signal="pressed" from="Menu/Button" to="Menu" method="_on_Button_pressed"]
+
+[editable path="Ball"]

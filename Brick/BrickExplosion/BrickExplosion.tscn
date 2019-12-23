@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Brick/BrickExplosion/Particlesmaterial.tres" type="Material" id=1]
+[ext_resource path="res://Brick/BrickExplosion/BrickExplosion.gd" type="Script" id=2]
+
+[node name="BrickExplosion" type="Particles2D"]
+emitting = false
+amount = 150
+lifetime = 0.1
+one_shot = true
+visibility_rect = Rect2( -63, -38, 126, 76 )
+process_material = ExtResource( 1 )
+script = ExtResource( 2 )
