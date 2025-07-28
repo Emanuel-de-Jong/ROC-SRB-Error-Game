@@ -1,4 +1,4 @@
-# SRB-Error-Game
+# Spa Resort Bali: Error Game
  
 ## Description
 The game I made for the 404 error page of: https://github.com/Emanuel-de-Jong/Spa-Resort-Bali
