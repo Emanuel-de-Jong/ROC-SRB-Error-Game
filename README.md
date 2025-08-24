@@ -1,5 +1,5 @@
 # Spa Resort Bali: Error Game
-The game I made for the 404 error page of: https://github.com/Emanuel-de-Jong/Spa-Resort-Bali
+The game I made for the 404 error page of [Spa Resort Bali](https://github.com/Emanuel-de-Jong/ROC-Spa-Resort-Bali).
 
 It's very simple but it shows that I can use the different physics bodies most game engines use and that I can write dynamic and extendable code.
 
