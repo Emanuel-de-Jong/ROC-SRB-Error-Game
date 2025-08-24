@@ -18,6 +18,6 @@ It's very simple but it shows that I can use the different physics bodies most g
 - Programming languages: GDScript(Python like)
 
 ## Progress
-- Start date: 10.11.19
-- Last change: 12.11.19
+- Start date: 2019-11-10
+- Last change: 2019-11-12
 - Activity status: Complete
