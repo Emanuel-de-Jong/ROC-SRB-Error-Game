@@ -3,8 +3,8 @@ The game I made for the 404 error page of [Spa Resort Bali](https://github.com/E
 
 It's very simple but it shows that I can use the different physics bodies most game engines use and that I can write dynamic and extendable code.
 
-**Active Development:** <br>
-**Last Change:** <br>
+**Active Development:** 2019-11-10 - 2019-11-12<br>
+**Last Change:** 2019-11-12<br>
 
 | | |
 | :---: | :---: |
@@ -15,9 +15,4 @@ It's very simple but it shows that I can use the different physics bodies most g
 - Type: Game
 - For: Spa Resort Bali
 - Language: English
-- Programming languages: GDScript(Python like)
-
-## Progress
-- Start date: 2019-11-10
-- Last change: 2019-11-12
-- Activity status: Complete
+- Programming languages: GDScript (Python like)
